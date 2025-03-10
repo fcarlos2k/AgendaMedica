@@ -15,10 +15,10 @@ builder.Services.AddSwaggerGen();
 string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(sqlConnection));
 
-builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+builder.Services.AddScoped<IDoctorDapperRepository, DoctorDapperRepository>();
 builder.Services.AddScoped<IMedicalConsultationRepository, MedicalConsultationRepository>();
 builder.Services.AddScoped<IMedicalConsultationStatusRepository, MedicalConsultationStatusRepository>();
-builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientDapperRepository, PatientDapperRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

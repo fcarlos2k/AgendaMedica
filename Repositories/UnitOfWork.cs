@@ -5,10 +5,10 @@ namespace AgendaMedica.Repositories;
 
 public class UnitOfWork : IUnitOfWork, IDisposable
 {
-    private IDoctorRepository? _doctorRepository;
+    private IDoctorDapperRepository? _doctorDapperRepository;
+    private IPatientDapperRepository? _patientDapperRepository;
     private IMedicalConsultationStatusRepository? _medicalConsultationStatusRepository;
     private IMedicalConsultationRepository? _medicalConsultationRepository;
-    private IPatientRepository? _patientRepository;
 
 
     private readonly AppDbContext _context;
@@ -18,17 +18,30 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         _context = context;
     }
 
-    public IDoctorRepository DoctorRepository
+    public IDoctorDapperRepository DoctorDapperRepository
     {
         get
         {
-            if (_doctorRepository == null)
+            if (_doctorDapperRepository == null)
             {
-                _doctorRepository = new DoctorRepository(_context);
+                _doctorDapperRepository = new DoctorDapperRepository(_context);
             }
-            return _doctorRepository;
+            return _doctorDapperRepository;
         }
     }
+
+    public IPatientDapperRepository PatientDapperRepository
+    {
+        get
+        {
+            if (_patientDapperRepository == null)
+            {
+                _patientDapperRepository = new PatientDapperRepository(_context);
+            }
+            return _patientDapperRepository;
+        }
+    }
+
 
     public IMedicalConsultationStatusRepository MedicalConsultationStatusRepository
     {
@@ -55,17 +68,6 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         }
     }
 
-    public IPatientRepository PatientRepository
-    {
-        get
-        {
-            if (_patientRepository == null)
-            {
-                _patientRepository = new PatientRepository(_context);
-            }
-            return _patientRepository;
-        }
-    }
 
 
     public async Task CommitAsync()

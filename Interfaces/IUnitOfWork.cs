@@ -2,12 +2,9 @@
 
 public interface IUnitOfWork
 {
-    IDoctorRepository DoctorRepository { get; }
-
+    IDoctorDapperRepository DoctorDapperRepository { get; }
     IMedicalConsultationStatusRepository MedicalConsultationStatusRepository { get; }
-
     IMedicalConsultationRepository MedicalConsultationRepository { get; }
-    IPatientRepository PatientRepository { get; }
-        
+    IPatientDapperRepository PatientDapperRepository { get; }
     Task CommitAsync();
 }
