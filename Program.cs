@@ -1,3 +1,5 @@
+using System.Data;
+using System.Data.SqlClient;
 using System.Reflection;
 using AgendaMedica.Context;
 using AgendaMedica.Interfaces;
@@ -17,14 +19,14 @@ builder.Services.AddSwaggerGen();
 string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(sqlConnection));
 
+builder.Services.AddScoped<IDbConnection>(sp => new SqlConnection(sqlConnection));
+
 builder.Services.AddScoped<IDoctorDapperRepository, DoctorDapperRepository>();
 builder.Services.AddScoped<IPatientDapperRepository, PatientDapperRepository>();
 
-//builder.Services.AddMediatR(typeof(Program).Assembly);
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
 
 builder.Services.AddScoped<IMedicalConsultationRepository, MedicalConsultationRepository>();
 builder.Services.AddScoped<IMedicalConsultationStatusRepository, MedicalConsultationStatusRepository>();

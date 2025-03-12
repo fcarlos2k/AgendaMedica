@@ -24,7 +24,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         {
             if (_doctorDapperRepository == null)
             {
-                _doctorDapperRepository = new DoctorDapperRepository(_context);
+                //_doctorDapperRepository = new DoctorDapperRepository(_context);
             }
             return _doctorDapperRepository;
         }

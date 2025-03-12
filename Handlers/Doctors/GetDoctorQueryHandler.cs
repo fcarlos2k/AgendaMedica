@@ -23,7 +23,7 @@ namespace AgendaMedica.Handlers.Doctors
         public async Task<IEnumerable<DoctorDto>> Handle(GetDoctorsQuery request, CancellationToken cancellationToken)
         {
             var doctors = await _doctorDapperRepository.GetDoctorsAsync();
-            return _mapper.Map<IEnumerable<DoctorDto>>(doctors);
+            return _mapper.Map<IEnumerable<DoctorDto>>(doctors.Value);
             
         }
     }

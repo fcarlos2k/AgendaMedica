@@ -1,5 +1,6 @@
 ﻿using AgendaMedica.Commands.Doctors;
 using AgendaMedica.DTOs;
+using AgendaMedica.Models;
 using AgendaMedica.Queries.Doctor;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,16 +19,20 @@ public class DoctorController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<DoctorDto>>> GetDoctors()
+    public async Task<IActionResult> GetDoctors()
     {
-        var doctors = await _mediator.Send(new GetDoctorsQuery());
+        var query = new GetDoctorsQuery();
+        var doctors = await _mediator.Send(query);
         return Ok(doctors);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<DoctorDto>> GetDoctorById(int id)
+    public async Task<IActionResult> GetDoctorById(int id)
     {
-        var doctor = await _mediator.Send(new GetDoctorByIdQuery(id));
+        var query = new GetDoctorByIdQuery(id);
+
+        var doctor = await _mediator.Send(query);
+
         if (doctor == null)
         {
             return NotFound();
@@ -36,7 +41,7 @@ public class DoctorController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<DoctorDto>> AddDoctor(CreateDoctorCommand command)
+    public async Task<IActionResult> AddDoctor(CreateDoctorCommand command)
     {
         if (command == null)
         {
