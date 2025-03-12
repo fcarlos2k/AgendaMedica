@@ -39,7 +39,6 @@ namespace AgendaMedica.Repositories
                 throw new InvalidOperationException("Doctor not found");
             }
             return doctor;
-
         }
 
         public async Task<int> AddDoctorAsync(Doctor doctor)
@@ -65,7 +64,6 @@ namespace AgendaMedica.Repositories
             string query = "UPDATE Doctor SET Name = @Name, MedicalSpecialtyId = @MedicalSpecialtyId WHERE Id = @Id";
             var affectedRows = await _dbConnection.ExecuteAsync(query, doctor);
             return affectedRows;
-
         }
 
         public async Task<int> DeleteDoctorAsync(int id)
@@ -79,7 +77,6 @@ namespace AgendaMedica.Repositories
             var query = "DELETE FROM Doctor WHERE Id = @Id";
             var affectedRows = await _dbConnection.ExecuteAsync(query, new { Id = id });
             return affectedRows;
-
         }
     }
 }

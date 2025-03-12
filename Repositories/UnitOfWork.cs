@@ -36,7 +36,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         {
             if (_patientDapperRepository == null)
             {
-                _patientDapperRepository = new PatientDapperRepository(_context);
+                //_patientDapperRepository = new PatientDapperRepository(_context);
             }
             return _patientDapperRepository;
         }

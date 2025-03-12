@@ -5,42 +5,40 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using Microsoft.AspNetCore.Mvc;
+using System.Data.Common;
 
 namespace AgendaMedica.Repositories
 {
     public class PatientDapperRepository : IPatientDapperRepository
     {
-        private readonly string _connectionString;
+        private readonly IDbConnection _dbConnection;
 
-        public PatientDapperRepository(AppDbContext context)
+        public PatientDapperRepository(IDbConnection dbConnection)
         {
-            _connectionString = context.Database.GetConnectionString();
+            _dbConnection = dbConnection;
         }
 
-        public async Task<IEnumerable<Patient>> GetPatientsAsync()
+        public async Task<ActionResult<IEnumerable<Patient>>> GetPatientsAsync()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            string query = "SELECT * FROM Patient";
+            var patientList = await _dbConnection.QueryAsync<Patient>(query);
+            if (patientList is null)
             {
-                var query = "SELECT Id, Name, Cpf, DateOfBirth, Phone, Address FROM Patient";
-                //var patients = await connection.QueryAsync<Patient>(query, MapDateOnly);
-                var patients = await connection.QueryAsync<Patient>(query);
-                return patients;
+                throw new InvalidOperationException("Patient not found");
             }
+            return new ActionResult<IEnumerable<Patient>>(patientList);
         }
 
         public async Task<Patient> GetPatientByIdAsync(int id)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            string query = "SELECT * FROM Patient WHERE Id = @Id";
+            var patient = await _dbConnection.QuerySingleOrDefaultAsync<Patient>(query, new { Id = id });
+            if (patient is null)
             {
-                var query = "SELECT * FROM Patient WHERE Id = @Id";
-                //var patient = await connection.QuerySingleOrDefaultAsync<Patient>(query, new { Id = id }, MapDateOnly);
-                var patient = await connection.QueryAsync(query, new { Id = id });
-                if (patient is null)
-                {
-                    throw new InvalidOperationException("Patient not found");
-                }
-                return (Patient)patient;
+                throw new InvalidOperationException("Patient not found");
             }
+            return patient;
         }
 
         public async Task<int> AddPatientAsync(Patient patient)
@@ -50,13 +48,10 @@ namespace AgendaMedica.Repositories
                 throw new ArgumentNullException(nameof(patient));
             }
 
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var query = "INSERT INTO Patient (Name, Cpf, DateOfBirth, Phone, Address) VALUES (@Name, @Cpf, @DateOfBirth, @Phone, @Address); SELECT CAST(SCOPE_IDENTITY() as int)";
-                var id = await connection.QuerySingleAsync<int>(query, patient);
-                patient.Id = id;
-                return id;
-            }
+            string query = "INSERT INTO Patient (Name, Cpf, DateOfBirth, Phone, Address) VALUES (@Name, @Cpf, @DateOfBirth, @Phone, @Address); SELECT CAST(SCOPE_IDENTITY() as int)";
+            var id = await _dbConnection.QuerySingleAsync<int>(query, patient);
+            patient.Id = id;
+            return id;
         }
 
         public async Task<int> UpdatePatientAsync(Patient patient)
@@ -66,12 +61,9 @@ namespace AgendaMedica.Repositories
                 throw new ArgumentNullException(nameof(patient));
             }
 
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var query = "UPDATE Patient SET Name = @Name, Cpf = @Cpf, DateOfBirth = @DateOfBirth, Phone = @Phone, Address = @Address WHERE Id = @Id";
-                var affectedRows = await connection.ExecuteAsync(query, patient);
-                return affectedRows;
-            }
+            string query = "UPDATE Patient SET Name = @Name, Cpf = @Cpf, DateOfBirth = @DateOfBirth, Phone = @Phone, Address = @Address WHERE Id = @Id";
+            var affectedRows = await _dbConnection.ExecuteAsync(query, patient);
+            return affectedRows;
         }
 
         public async Task<int> DeletePatientAsync(int id)
@@ -82,25 +74,9 @@ namespace AgendaMedica.Repositories
                 throw new InvalidOperationException("Patient not found");
             }
 
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                var query = "DELETE FROM Patient WHERE Id = @Id";
-                var affectedRows = await connection.ExecuteAsync(query, new { Id = id });
-                return affectedRows;
-            }
-        }
-
-        private static Patient MapDateOnly(IDataReader reader)
-        {
-            return new Patient
-            {
-                Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                Name = reader.GetString(reader.GetOrdinal("Name")),
-                Cpf = reader.GetString(reader.GetOrdinal("Cpf")),
-                DateOfBirth = DateOnly.FromDateTime(reader.GetDateTime(reader.GetOrdinal("DateOfBirth"))),
-                Phone = reader.GetString(reader.GetOrdinal("Phone")),
-                Address = reader.GetString(reader.GetOrdinal("Address"))
-            };
+            var query = "DELETE FROM Patient WHERE Id = @Id";
+            var affectedRows = await _dbConnection.ExecuteAsync(query, new { Id = id });
+            return affectedRows;
         }
     }
 }

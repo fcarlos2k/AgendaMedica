@@ -24,8 +24,8 @@ namespace AgendaMedica.Handlers.Patients
         public async Task<IEnumerable<PatientDto>> Handle(GetPatientsQuery request, CancellationToken cancellationToken)
         {
             var patients = await _patientDapperRepository.GetPatientsAsync();
-            return _mapper.Map<IEnumerable<PatientDto>>(patients);
-            
+            return _mapper.Map<IEnumerable<PatientDto>>(patients.Value);
+
         }
     }
 }

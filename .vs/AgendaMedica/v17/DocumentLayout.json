@@ -1,122 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\interfaces\\idoctordapperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:interfaces\\idoctordapperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\repositories\\doctordapperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:repositories\\doctordapperrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\handlers\\doctors\\getdoctorqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:handlers\\doctors\\getdoctorqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\dtos\\mapping\\dtomappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:dtos\\mapping\\dtomappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DtoMappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\DTOs\\Mapping\\DtoMappingProfile.cs",
-              "RelativeDocumentMoniker": "DTOs\\Mapping\\DtoMappingProfile.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\DTOs\\Mapping\\DtoMappingProfile.cs",
-              "RelativeToolTip": "DTOs\\Mapping\\DtoMappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T13:00:37.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repositories\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "Repositories\\UnitOfWork.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repositories\\UnitOfWork.cs",
-              "RelativeToolTip": "Repositories\\UnitOfWork.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBoAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T12:44:59.165Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IDoctorDapperRepository.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Interfaces\\IDoctorDapperRepository.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IDoctorDapperRepository.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Interfaces\\IDoctorDapperRepository.cs",
-              "RelativeToolTip": "Interfaces\\IDoctorDapperRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T12:07:00.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DoctorDapperRepository.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repositories\\DoctorDapperRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\DoctorDapperRepository.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repositories\\DoctorDapperRepository.cs",
-              "RelativeToolTip": "Repositories\\DoctorDapperRepository.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAIwB0AAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T18:04:19.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DoctorController.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Controllers\\DoctorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DoctorController.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Controllers\\DoctorController.cs",
-              "RelativeToolTip": "Controllers\\DoctorController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAwwCUAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T12:06:05.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetDoctorQueryHandler.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Handlers\\Doctors\\GetDoctorQueryHandler.cs",
-              "RelativeDocumentMoniker": "Handlers\\Doctors\\GetDoctorQueryHandler.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Handlers\\Doctors\\GetDoctorQueryHandler.cs",
-              "RelativeToolTip": "Handlers\\Doctors\\GetDoctorQueryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T12:04:29.999Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

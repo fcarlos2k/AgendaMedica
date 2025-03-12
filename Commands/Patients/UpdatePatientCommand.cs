@@ -8,11 +8,11 @@ namespace AgendaMedica.Commands.Patients
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Cpf { get; set; }
-        public DateOnly DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string? Phone { get; set; }
         public string? Address { get; set; }
 
-        public UpdatePatientCommand(int id, string? name, string? cpf, DateOnly dateOfBirth, string? phone, string? address)
+        public UpdatePatientCommand(int id, string? name, string? cpf, DateTime dateOfBirth, string? phone, string? address)
         {
             Id = id;
             Name = name;
