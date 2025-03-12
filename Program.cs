@@ -1,6 +1,8 @@
+using System.Reflection;
 using AgendaMedica.Context;
 using AgendaMedica.Interfaces;
 using AgendaMedica.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,9 +18,16 @@ string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(sqlConnection));
 
 builder.Services.AddScoped<IDoctorDapperRepository, DoctorDapperRepository>();
+builder.Services.AddScoped<IPatientDapperRepository, PatientDapperRepository>();
+
+//builder.Services.AddMediatR(typeof(Program).Assembly);
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+
 builder.Services.AddScoped<IMedicalConsultationRepository, MedicalConsultationRepository>();
 builder.Services.AddScoped<IMedicalConsultationStatusRepository, MedicalConsultationStatusRepository>();
-builder.Services.AddScoped<IPatientDapperRepository, PatientDapperRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

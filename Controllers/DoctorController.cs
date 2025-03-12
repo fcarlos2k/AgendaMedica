@@ -1,5 +1,7 @@
-﻿using AgendaMedica.Interfaces;
-using AgendaMedica.Models;
+﻿using AgendaMedica.Commands.Doctors;
+using AgendaMedica.DTOs;
+using AgendaMedica.Queries.Doctor;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AgendaMedica.Controllers;
@@ -8,24 +10,24 @@ namespace AgendaMedica.Controllers;
 [ApiController]
 public class DoctorController : ControllerBase
 {
-    private readonly IDoctorDapperRepository _doctorRepository;
+    private readonly IMediator _mediator;
 
-    public DoctorController(IDoctorDapperRepository doctorRepository)
+    public DoctorController(IMediator mediator)
     {
-        _doctorRepository = doctorRepository;
+        _mediator = mediator;
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Doctor>>> GetDoctors()
+    public async Task<ActionResult<IEnumerable<DoctorDto>>> GetDoctors()
     {
-        var doctors = await _doctorRepository.GetDoctorsAsync();
+        var doctors = await _mediator.Send(new GetDoctorsQuery());
         return Ok(doctors);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Doctor>> GetDoctorById(int id)
+    public async Task<ActionResult<DoctorDto>> GetDoctorById(int id)
     {
-        var doctor = await _doctorRepository.GetDoctorByIdAsync(id);
+        var doctor = await _mediator.Send(new GetDoctorByIdQuery(id));
         if (doctor == null)
         {
             return NotFound();
@@ -34,46 +36,45 @@ public class DoctorController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Doctor>> AddDoctor(Doctor doctor)
+    public async Task<ActionResult<DoctorDto>> AddDoctor(CreateDoctorCommand command)
     {
-        if (doctor == null)
+        if (command == null)
         {
             return BadRequest();
         }
 
-        var id = await _doctorRepository.AddPatientAsync(doctor);
-        doctor.Id = id;
+        var doctor = await _mediator.Send(command);
         return CreatedAtAction(nameof(GetDoctorById), new { id = doctor.Id }, doctor);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateDoctor(int id, Doctor doctor)
+    public async Task<IActionResult> UpdateDoctor(int id, UpdateDoctorCommand command)
     {
-        if (id != doctor.Id)
+        if (id != command.Id)
         {
             return BadRequest();
         }
 
-        var existingDoctor = await _doctorRepository.GetDoctorByIdAsync(id);
+        var existingDoctor = await _mediator.Send(new GetDoctorByIdQuery(id));
         if (existingDoctor == null)
         {
             return NotFound();
         }
 
-        await _doctorRepository.UpdatePatientAsync(doctor);
+        await _mediator.Send(command);
         return NoContent();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteDoctor(int id)
     {
-        var doctor = await _doctorRepository.GetDoctorByIdAsync(id);
+        var doctor = await _mediator.Send(new GetDoctorByIdQuery(id));
         if (doctor == null)
         {
             return NotFound();
         }
 
-        await _doctorRepository.DeletePatientAsync(id);
+        await _mediator.Send(new DeleteDoctorCommand(id));
         return NoContent();
     }
 }

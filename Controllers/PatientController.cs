@@ -1,31 +1,33 @@
-﻿using AgendaMedica.Interfaces;
+﻿using AgendaMedica.Commands.Patients;
 using AgendaMedica.Models;
+using AgendaMedica.Queries.Patients;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AgendaMedica.Controllers;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 public class PatientController : ControllerBase
 {
-    private readonly IPatientDapperRepository _patientRepository;
+    private readonly IMediator _mediator;
 
-    public PatientController(IPatientDapperRepository patientRepository)
+    public PatientController(IMediator mediator)
     {
-        _patientRepository = patientRepository;
+        _mediator = mediator;
     }
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Patient>>> GetPatients()
     {
-        var patients = await _patientRepository.GetPatientsAsync();
+        var patients = await _mediator.Send(new GetPatientsQuery());
         return Ok(patients);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Patient>> GetPatientById(int id)
     {
-        var patient = await _patientRepository.GetPatientByIdAsync(id);
+        var patient = await _mediator.Send(new GetPatientByIdQuery(id));
         if (patient == null)
         {
             return NotFound();
@@ -34,46 +36,45 @@ public class PatientController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Patient>> AddPatient(Patient patient)
+    public async Task<ActionResult<Patient>> AddPatient(CreatePatientCommand command)
     {
-        if (patient == null)
+        if (command == null)
         {
             return BadRequest();
         }
 
-        var id = await _patientRepository.AddPatientAsync(patient);
-        patient.Id = id;
+        var patient = await _mediator.Send(command);
         return CreatedAtAction(nameof(GetPatientById), new { id = patient.Id }, patient);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdatePatient(int id, Patient patient)
+    public async Task<IActionResult> UpdatePatient(int id, UpdatePatientCommand command)
     {
-        if (id != patient.Id)
+        if (id != command.Id)
         {
             return BadRequest();
         }
 
-        var existingPatient = await _patientRepository.GetPatientByIdAsync(id);
+        var existingPatient = await _mediator.Send(new GetPatientByIdQuery(id));
         if (existingPatient == null)
         {
             return NotFound();
         }
 
-        await _patientRepository.UpdatePatientAsync(patient);
+        await _mediator.Send(command);
         return NoContent();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePatient(int id)
     {
-        var patient = await _patientRepository.GetPatientByIdAsync(id);
+        var patient = await _mediator.Send(new GetPatientByIdQuery(id));
         if (patient == null)
         {
             return NotFound();
         }
 
-        await _patientRepository.DeletePatientAsync(id);
+        await _mediator.Send(new DeletePatientCommand(id));
         return NoContent();
     }
 }

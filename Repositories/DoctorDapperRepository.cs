@@ -10,16 +10,16 @@ namespace AgendaMedica.Repositories
 {
     public class DoctorDapperRepository : IDoctorDapperRepository
     {
-        private readonly string _connectionString;
+        private readonly IDbConnection _dbConnection;
 
-        public DoctorDapperRepository(AppDbContext context)
+        public DoctorDapperRepository(IDbConnection dbConnection)
         {
-            _connectionString = context.Database.GetConnectionString();
+            _dbConnection = dbConnection;
         }
 
         public async Task<IEnumerable<Doctor>> GetDoctorsAsync()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_dbConnection))
             {
                 var query = "SELECT * FROM Doctor";
                 var doctorList = await connection.QueryAsync<Doctor>(query);
@@ -29,7 +29,7 @@ namespace AgendaMedica.Repositories
 
         public async Task<Doctor> GetDoctorByIdAsync(int id)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_dbConnection))
             {
                 var query = "SELECT * FROM Doctor WHERE Id = @Id";
                 var doctor = await connection.QuerySingleOrDefaultAsync<Doctor>(query, new { Id = id });
@@ -41,14 +41,14 @@ namespace AgendaMedica.Repositories
             }
         }
 
-        public async Task<int> AddPatientAsync(Doctor doctor)
+        public async Task<int> AddDoctorAsync(Doctor doctor)
         {
             if (doctor is null)
             {
                 throw new ArgumentNullException(nameof(doctor));
             }
 
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_dbConnection))
             {
                 var query = "INSERT INTO Doctor (Name, MedicalSpecialtyId) VALUES (@Name, @MedicalSpecialtyId); SELECT CAST(SCOPE_IDENTITY() as int)";
                 var id = await connection.QuerySingleAsync<int>(query, doctor);
@@ -57,14 +57,14 @@ namespace AgendaMedica.Repositories
             }
         }
 
-        public async Task<int> UpdatePatientAsync(Doctor doctor)
+        public async Task<int> UpdateDoctorAsync(Doctor doctor)
         {
             if (doctor is null)
             {
                 throw new ArgumentNullException(nameof(doctor));
             }
 
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_dbConnection))
             {
                 var query = "UPDATE Doctor SET Name = @Name, MedicalSpecialtyId = @MedicalSpecialtyId WHERE Id = @Id";
                 var affectedRows = await connection.ExecuteAsync(query, doctor);
@@ -72,7 +72,7 @@ namespace AgendaMedica.Repositories
             }
         }
 
-        public async Task<int> DeletePatientAsync(int id)
+        public async Task<int> DeleteDoctorAsync(int id)
         {
             var doctor = await GetDoctorByIdAsync(id);
             if (doctor is null)
@@ -80,7 +80,7 @@ namespace AgendaMedica.Repositories
                 throw new InvalidOperationException("Doctor not found");
             }
 
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_dbConnection))
             {
                 var query = "DELETE FROM Doctor WHERE Id = @Id";
                 var affectedRows = await connection.ExecuteAsync(query, new { Id = id });

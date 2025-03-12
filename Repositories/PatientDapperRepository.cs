@@ -21,10 +21,10 @@ namespace AgendaMedica.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var query = "SELECT * FROM Patient";
+                var query = "SELECT Id, Name, Cpf, DateOfBirth, Phone, Address FROM Patient";
                 //var patients = await connection.QueryAsync<Patient>(query, MapDateOnly);
-                var patients = await connection.QueryAsync(query, MapDateOnly);
-                return (IEnumerable<Patient>)patients;
+                var patients = await connection.QueryAsync<Patient>(query);
+                return patients;
             }
         }
 

@@ -8,7 +8,7 @@ namespace AgendaMedica.Handlers.Patients;
 
 
 
-public class GetPatientByIdQueryHandler : IRequestHandler<GetDoctorByIdQuery, PatientDto>
+public class GetPatientByIdQueryHandler : IRequestHandler<GetPatientByIdQuery, PatientDto>
 {
     private readonly IPatientDapperRepository _patientDapperRepository; 
     //private readonly IUnitOfWork _unitOfWork;
@@ -22,7 +22,7 @@ public class GetPatientByIdQueryHandler : IRequestHandler<GetDoctorByIdQuery, Pa
         _mapper = mapper;
     }
 
-    public async Task<PatientDto> Handle(GetDoctorByIdQuery request, CancellationToken cancellationToken)
+    public async Task<PatientDto> Handle(GetPatientByIdQuery request, CancellationToken cancellationToken)
     {
         var patient = await _patientDapperRepository.GetPatientByIdAsync(request.Id);
         return _mapper.Map<PatientDto>(patient);
