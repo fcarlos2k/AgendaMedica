@@ -7,8 +7,8 @@ public class UnitOfWork : IUnitOfWork, IDisposable
 {
     private IDoctorDapperRepository? _doctorDapperRepository;
     private IPatientDapperRepository? _patientDapperRepository;
-    private IMedicalConsultationStatusRepository? _medicalConsultationStatusRepository;
-    private IMedicalConsultationRepository? _medicalConsultationRepository;
+    private IMedicalConsultationStatusDapperRepository? _medicalConsultationStatusRepository;
+    private IMedicalConsultationDapperRepository? _medicalConsultationRepository;
 
 
     private readonly AppDbContext _context;
@@ -43,7 +43,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     }
 
 
-    public IMedicalConsultationStatusRepository MedicalConsultationStatusRepository
+    public IMedicalConsultationStatusDapperRepository MedicalConsultationStatusRepository
     {
         get
         {
@@ -56,7 +56,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     }
 
 
-    public IMedicalConsultationRepository MedicalConsultationRepository
+    public IMedicalConsultationDapperRepository MedicalConsultationRepository
     {
         get
         {

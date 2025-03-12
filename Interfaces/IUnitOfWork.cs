@@ -3,8 +3,8 @@
 public interface IUnitOfWork
 {
     IDoctorDapperRepository DoctorDapperRepository { get; }
-    IMedicalConsultationStatusRepository MedicalConsultationStatusRepository { get; }
-    IMedicalConsultationRepository MedicalConsultationRepository { get; }
+    IMedicalConsultationStatusDapperRepository MedicalConsultationStatusRepository { get; }
+    IMedicalConsultationDapperRepository MedicalConsultationRepository { get; }
     IPatientDapperRepository PatientDapperRepository { get; }
     Task CommitAsync();
 }

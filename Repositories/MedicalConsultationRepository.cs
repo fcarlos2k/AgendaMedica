@@ -5,7 +5,7 @@ using AgendaMedica.Models;
 
 namespace AgendaMedica.Repositories
 {
-    public class MedicalConsultationRepository : IMedicalConsultationRepository
+    public class MedicalConsultationRepository : IMedicalConsultationDapperRepository
     {
         private AppDbContext context;
 
@@ -14,27 +14,27 @@ namespace AgendaMedica.Repositories
             this.context = context;
         }
 
-        Task<MedicalConsultationDto> IMedicalConsultationRepository.AddMedicalConsultation(MedicalConsultationDto medicalConsultationDto)
+        Task<MedicalConsultationDto> IMedicalConsultationDapperRepository.AddMedicalConsultation(MedicalConsultationDto medicalConsultationDto)
         {
             throw new NotImplementedException();
         }
 
-        Task<MedicalConsultationDto> IMedicalConsultationRepository.DeleteMedicalConsultation(int id)
+        Task<MedicalConsultationDto> IMedicalConsultationDapperRepository.DeleteMedicalConsultation(int id)
         {
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<MedicalConsultationDto>> IMedicalConsultationRepository.GetAllMedicalConsultation()
+        Task<IEnumerable<MedicalConsultationDto>> IMedicalConsultationDapperRepository.GetAllMedicalConsultation()
         {
             throw new NotImplementedException();
         }
 
-        Task<MedicalConsultationDto> IMedicalConsultationRepository.GetDMedicalConsultationById(int id)
+        Task<MedicalConsultationDto> IMedicalConsultationDapperRepository.GetDMedicalConsultationById(int id)
         {
             throw new NotImplementedException();
         }
 
-        void IMedicalConsultationRepository.UpdateMedicalConsultation(MedicalConsultationDto medicalConsultationDto)
+        void IMedicalConsultationDapperRepository.UpdateMedicalConsultation(MedicalConsultationDto medicalConsultationDto)
         {
             throw new NotImplementedException();
         }

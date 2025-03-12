@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AgendaMedica.Context.Configurations
 {
-    public class StatusConsultaConfiguration : IEntityTypeConfiguration<MedicalConsultationStatus>
+    public class MedicalConsultationStatusConfiguration : IEntityTypeConfiguration<MedicalConsultationStatus>
     {
         public void Configure(EntityTypeBuilder<MedicalConsultationStatus> builder)
         {

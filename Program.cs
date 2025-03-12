@@ -28,8 +28,8 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Get
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-builder.Services.AddScoped<IMedicalConsultationRepository, MedicalConsultationRepository>();
-builder.Services.AddScoped<IMedicalConsultationStatusRepository, MedicalConsultationStatusRepository>();
+builder.Services.AddScoped<IMedicalConsultationDapperRepository, MedicalConsultationRepository>();
+builder.Services.AddScoped<IMedicalConsultationStatusDapperRepository, MedicalConsultationStatusRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

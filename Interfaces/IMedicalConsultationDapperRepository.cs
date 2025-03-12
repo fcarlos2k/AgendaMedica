@@ -2,7 +2,7 @@
 
 namespace AgendaMedica.Interfaces
 {
-    public interface IMedicalConsultationRepository
+    public interface IMedicalConsultationDapperRepository
     {
         Task<IEnumerable<MedicalConsultationDto>> GetAllMedicalConsultation();
         Task<MedicalConsultationDto> GetDMedicalConsultationById(int id);
