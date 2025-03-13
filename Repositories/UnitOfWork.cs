@@ -49,7 +49,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         {
             if (_medicalConsultationStatusRepository == null)
             {
-                _medicalConsultationStatusRepository = new MedicalConsultationStatusRepository(_context);
+                //_medicalConsultationStatusRepository = new MedicalConsultationStatusRepository(_context);
             }
             return _medicalConsultationStatusRepository;
         }

@@ -1,16 +1,14 @@
 ﻿using AgendaMedica.DTOs;
 using MediatR;
 
-namespace AgendaMedica.Queries.Doctor
+namespace AgendaMedica.Queries.Doctor;
+
+public class GetDoctorByIdQuery : IRequest<DoctorDto>
 {
-    public class GetDoctorByIdQuery : IRequest<DoctorDto>
+    public int Id { get; set; }
+
+    public GetDoctorByIdQuery(int id)
     {
-        public int Id { get; set; }
-
-        public GetDoctorByIdQuery(int id)
-        {
-            Id = id;
-        }
+        Id = id;
     }
-
 }

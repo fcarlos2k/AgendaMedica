@@ -2,6 +2,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using AgendaMedica.Context;
+using AgendaMedica.Handlers.MedicalConsultationStatuses;
 using AgendaMedica.Interfaces;
 using AgendaMedica.Repositories;
 using MediatR;
@@ -23,13 +24,13 @@ builder.Services.AddScoped<IDbConnection>(sp => new SqlConnection(sqlConnection)
 
 builder.Services.AddScoped<IDoctorDapperRepository, DoctorDapperRepository>();
 builder.Services.AddScoped<IPatientDapperRepository, PatientDapperRepository>();
+builder.Services.AddScoped<IMedicalConsultationStatusDapperRepository, MedicalConsultationStatusRepository>();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IMedicalConsultationDapperRepository, MedicalConsultationRepository>();
-builder.Services.AddScoped<IMedicalConsultationStatusDapperRepository, MedicalConsultationStatusRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

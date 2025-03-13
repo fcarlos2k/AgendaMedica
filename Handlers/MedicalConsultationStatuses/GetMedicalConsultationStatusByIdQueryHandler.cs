@@ -1,26 +1,27 @@
 ﻿using AgendaMedica.DTOs;
 using AgendaMedica.Interfaces;
-using AgendaMedica.Models;
-using AgendaMedica.Queries.Doctor;
+using AgendaMedica.Queries.MedicalConsultationStatuses;
 using AutoMapper;
 
 namespace AgendaMedica.Handlers.MedicalConsultationStatuses;
 
-public class GetMedicalConsultationStatsByIdQueryHandler
+public class GetMedicalConsultationStatusByIdQueryHandler
 {
-    private readonly IMedicalConsultationStatusDapperRepository _medicalConsultationStatsDapperRepository;
+    private readonly IMedicalConsultationStatusDapperRepository _medicalConsultationStatusDapperRepository;
+    
     private readonly IMapper _mapper;
 
-    public GetMedicalConsultationStatusByIdQueryHandler(IMedicalConsultationStatusDapperRepository medicalConsultationStatsDapperRepository, IMapper mapper)
+    
+    public GetMedicalConsultationStatusByIdQueryHandler(IMedicalConsultationStatusDapperRepository medicalConsultationStatusDapperRepository, IMapper mapper)
     {
 
-        _medicalConsultationStatsDapperRepository = medicalConsultationStatsDapperRepository;
+        _medicalConsultationStatusDapperRepository = medicalConsultationStatusDapperRepository;
         _mapper = mapper;
     }
 
     public async Task<MedicalConsultationStatusDto> Handle(GetMedicalConsultationStatusByIdQuery request, CancellationToken cancellationToken)
     {
-        var medicalConsultationStats = await _medicalConsultationStatsDapperRepository.GetMedicalConsultationStatusByIdAsync(request.Id);
-        return _mapper.Map<MedicalConsultationStatusDto>(medicalConsultationStats);
+        var medicalConsultationStatus = await _medicalConsultationStatusDapperRepository.GetMedicalConsultationStatusByIdAsync(request.Id);
+        return _mapper.Map<MedicalConsultationStatusDto>(medicalConsultationStatus);
     }
 }
