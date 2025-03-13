@@ -1,10 +1,7 @@
-using System.Data;
-using System.Data.SqlClient;
 using System.Reflection;
 using AgendaMedica.Context;
-using AgendaMedica.Handlers.MedicalConsultationStatuses;
 using AgendaMedica.Interfaces;
-using AgendaMedica.Repositories;
+using AgendaMedica.Services;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,19 +17,12 @@ builder.Services.AddSwaggerGen();
 string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(sqlConnection));
 
-builder.Services.AddScoped<IDbConnection>(sp => new SqlConnection(sqlConnection));
-
-builder.Services.AddScoped<IDoctorDapperRepository, DoctorDapperRepository>();
-builder.Services.AddScoped<IPatientDapperRepository, PatientDapperRepository>();
-builder.Services.AddScoped<IMedicalConsultationStatusDapperRepository, MedicalConsultationStatusRepository>();
-
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
-builder.Services.AddScoped<IMedicalConsultationDapperRepository, MedicalConsultationRepository>();
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+//builder.Services.AddScoped<IPatient, PatientService>();
+//builder.Services.AddScoped<IMedicalConsultationStatus, MedicalConsultationStatusService>();
+//builder.Services.AddScoped<IMedicalConsultation, MedicalConsultationService>();
 
 
 

@@ -1,8 +1,10 @@
-﻿using AgendaMedica.DTOs;
+﻿using AgendaMedica.Models;
 using MediatR;
+using System.Collections.Generic;
 
-namespace AgendaMedica.Queries.Doctor;
-
-public class GetDoctorsQuery : IRequest<IEnumerable<DoctorDto>>
+namespace AgendaMedica.Queries.Doctors
 {
+    public class GetDoctorsQuery : IRequest<IEnumerable<Doctor>>
+    {
+    }
 }

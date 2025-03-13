@@ -1,30 +1,29 @@
-﻿using System.Numerics;
-using AgendaMedica.DTOs;
+﻿using AgendaMedica.Context;
 using AgendaMedica.Interfaces;
 using AgendaMedica.Models;
-using AgendaMedica.Queries.Doctor;
-using AgendaMedica.Repositories;
-using AutoMapper;
+using AgendaMedica.Queries.Doctors;
 using MediatR;
 
 namespace AgendaMedica.Handlers.Doctors
 {
-    public class GetDoctorQueryHandler : IRequestHandler<GetDoctorsQuery, IEnumerable<DoctorDto>>
+    public class GetDoctorQueryHandler : IRequestHandler<GetDoctorsQuery, IEnumerable<Doctor>>
     {
-        private readonly IDoctorDapperRepository _doctorDapperRepository;
-        private readonly IMapper _mapper;
+        private readonly AppDbContext _appDbContext;
+        private readonly IDoctorRepository _doctorRepository;
 
-        public GetDoctorQueryHandler(IDoctorDapperRepository doctorDapperRepository, IMapper mapper)
+        public GetDoctorQueryHandler(AppDbContext appDbContext, IDoctorRepository doctorRepository)
         {
-            _doctorDapperRepository = doctorDapperRepository;
-            _mapper = mapper;
+            _appDbContext = appDbContext;
+            _doctorRepository = doctorRepository;
         }
 
-        public async Task<IEnumerable<DoctorDto>> Handle(GetDoctorsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Doctor>> Handle(GetDoctorsQuery request, CancellationToken cancellationToken)
         {
-            var doctors = await _doctorDapperRepository.GetDoctorsAsync();
-            return _mapper.Map<IEnumerable<DoctorDto>>(doctors.Value);
-            
+            //var doctors = await _appDbContext.Doctors
+            //    .Include(d => d.MedicalSpecialty)
+            //    .ToListAsync(cancellationToken);
+
+            return await _doctorRepository.GetDoctorsAsync();
         }
     }
 }

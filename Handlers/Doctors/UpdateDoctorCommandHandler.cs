@@ -1,40 +1,31 @@
-﻿using AgendaMedica.Commands.Doctors;
-using AgendaMedica.DTOs;
-using AgendaMedica.Interfaces;
+﻿using System.Data.Entity;
+using AgendaMedica.Commands.Doctors;
+using AgendaMedica.Context;
 using AgendaMedica.Models;
-using AutoMapper;
 using MediatR;
 
 namespace AgendaMedica.Handlers.Doctors
 {
-    public class UpdateDoctorCommandHandler : IRequestHandler<UpdateDoctorCommand, DoctorDto>
+    public class UpdateDoctorCommandHandler : IRequestHandler<UpdateDoctorCommand, Doctor>
     {
-        private readonly IDoctorDapperRepository _doctorDapperRepository;
-        private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
 
-        public UpdateDoctorCommandHandler(IDoctorDapperRepository doctorDapperRepository, IMapper mapper)
+        public UpdateDoctorCommandHandler(AppDbContext context)
         {
-            _doctorDapperRepository = doctorDapperRepository;
-            _mapper = mapper;
+            _context = context;
         }
 
-        public async Task<DoctorDto> Handle(UpdateDoctorCommand request, CancellationToken cancellationToken)
+        public async Task<Doctor> Handle(UpdateDoctorCommand request, CancellationToken cancellationToken)
         {
-            var doctor = new Doctor
-            {
-                Id = request.Id,
-                Name = request.Name,
-                MedicalSpecialtyId = request.MedicalSpecialtyId
-            };
+            var doctor = await _context.Doctors.FirstOrDefaultAsync(d => d.Id == request.Id, cancellationToken);
+            if (doctor == null) return null;
 
-            var result = await _doctorDapperRepository.UpdateDoctorAsync(doctor);
-            if (result == 1)
-            {
-                var updatedDoctor = await _doctorDapperRepository.GetDoctorByIdAsync(request.Id);
-                return _mapper.Map<DoctorDto>(updatedDoctor);
-            }
+            doctor.Name = request.Name;
+            doctor.MedicalSpecialtyId = request.MedicalSpecialtyId;
 
-            return null;
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return doctor;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using AgendaMedica.DTOs;
-using AgendaMedica.Models;
+﻿using AgendaMedica.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

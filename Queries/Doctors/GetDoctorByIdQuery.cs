@@ -1,9 +1,9 @@
-﻿using AgendaMedica.DTOs;
+﻿using AgendaMedica.Models;
 using MediatR;
 
-namespace AgendaMedica.Queries.Doctor;
+namespace AgendaMedica.Queries.Doctors;
 
-public class GetDoctorByIdQuery : IRequest<DoctorDto>
+public class GetDoctorByIdQuery : IRequest<Doctor>
 {
     public int Id { get; set; }
 

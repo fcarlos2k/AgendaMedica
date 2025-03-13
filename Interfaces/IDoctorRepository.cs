@@ -3,10 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AgendaMedica.Interfaces;
 
-public interface IDoctorDapperRepository
+public interface IDoctorRepository
 {
-    //Task<ActionResult<Doctor>> GetDoctorsAsync(); --> video macoratti
-    Task<ActionResult<IEnumerable<Doctor>>> GetDoctorsAsync();
+    Task<IEnumerable<Doctor>> GetDoctorsAsync();
     Task<Doctor> GetDoctorByIdAsync(int id);
     Task<int> AddDoctorAsync(Doctor doctor);
     Task<int> UpdateDoctorAsync(Doctor doctor);

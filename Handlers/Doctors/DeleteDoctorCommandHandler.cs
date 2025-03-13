@@ -6,16 +6,16 @@ namespace AgendaMedica.Handlers.Doctors
 {
     public class DeleteDoctorCommandHandler : IRequestHandler<DeleteDoctorCommand, bool>
     {
-        private readonly IDoctorDapperRepository _doctorDapperRepository;
+        private readonly IDoctorRepository _doctorRepository;
 
-        public DeleteDoctorCommandHandler(IDoctorDapperRepository doctorDapperRepository)
+        public DeleteDoctorCommandHandler(IDoctorRepository doctorRepository)
         {
-            _doctorDapperRepository = doctorDapperRepository;
+            _doctorRepository = doctorRepository;
         }
 
         public async Task<bool> Handle(DeleteDoctorCommand request, CancellationToken cancellationToken)
         {
-            var result = await _doctorDapperRepository.DeleteDoctorAsync(request.Id);
+            var result = await _doctorRepository.DeleteDoctorAsync(request.Id);
             return result == 1;
         }
     }

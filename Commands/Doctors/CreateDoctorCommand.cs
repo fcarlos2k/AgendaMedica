@@ -1,9 +1,9 @@
-﻿using AgendaMedica.DTOs;
+﻿using AgendaMedica.Models;
 using MediatR;
 
 namespace AgendaMedica.Commands.Doctors
 {
-    public class CreateDoctorCommand : IRequest<DoctorDto>
+    public class CreateDoctorCommand : IRequest<Doctor>
     {
         public string? Name { get; set; }
         public int MedicalSpecialtyId { get; set; }

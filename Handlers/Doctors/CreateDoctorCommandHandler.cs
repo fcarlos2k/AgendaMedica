@@ -1,36 +1,31 @@
 ﻿using AgendaMedica.Commands.Doctors;
-using AgendaMedica.DTOs;
+using AgendaMedica.Context;
 using AgendaMedica.Interfaces;
 using AgendaMedica.Models;
-using AutoMapper;
 using MediatR;
 
 namespace AgendaMedica.Handlers.Doctors;
 
-public class CreateDoctorCommandHandler : IRequestHandler<CreateDoctorCommand, DoctorDto>
+public class CreateDoctorCommandHandler : IRequestHandler<CreateDoctorCommand, Doctor>
 {
+    private readonly AppDbContext _context;
 
-    private readonly IMapper _mapper;
-    private readonly IDoctorDapperRepository _doctorDapperRepository;
-
-    public CreateDoctorCommandHandler(IDoctorDapperRepository doctorDapperRepository, IMapper mapper)
+    public CreateDoctorCommandHandler(AppDbContext context)
     {
-
-        _doctorDapperRepository = doctorDapperRepository;
-        _mapper = mapper;
+        _context = context;
     }
 
-    public async Task<DoctorDto> Handle(CreateDoctorCommand request, CancellationToken cancellationToken)
+    public async Task<Doctor> Handle(CreateDoctorCommand request, CancellationToken cancellationToken)
     {
         var doctor = new Doctor
         {
-
             Name = request.Name,
             MedicalSpecialtyId = request.MedicalSpecialtyId
         };
 
-        await _doctorDapperRepository.AddDoctorAsync(doctor);
+        _context.Doctors.Add(doctor);
+        await _context.SaveChangesAsync(cancellationToken);
 
-        return _mapper.Map<DoctorDto>(doctor);
+        return doctor;
     }
 }
