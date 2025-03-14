@@ -2,6 +2,7 @@ using System.Reflection;
 using AgendaMedica.Context;
 using AgendaMedica.Interfaces;
 using AgendaMedica.Repositories;
+using AgendaMedica.Repository;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(sqlC
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
-//builder.Services.AddScoped<IPatient, PatientService>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 //builder.Services.AddScoped<IMedicalConsultationStatus, MedicalConsultationStatusService>();
 //builder.Services.AddScoped<IMedicalConsultation, MedicalConsultationService>();
 

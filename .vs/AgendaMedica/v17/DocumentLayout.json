@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\queries\\doctors\\getdoctorsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:queries\\doctors\\getdoctorsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\queries\\doctors\\getdoctorbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:queries\\doctors\\getdoctorbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GetDoctorsQuery.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Queries\\Doctors\\GetDoctorsQuery.cs",
-              "RelativeDocumentMoniker": "Queries\\Doctors\\GetDoctorsQuery.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Queries\\Doctors\\GetDoctorsQuery.cs",
-              "RelativeToolTip": "Queries\\Doctors\\GetDoctorsQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PatientController.cs",
+              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "Controllers\\PatientController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAlwFQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T16:34:42.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetDoctorByIdQuery.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Queries\\Doctors\\GetDoctorByIdQuery.cs",
-              "RelativeDocumentMoniker": "Queries\\Doctors\\GetDoctorByIdQuery.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Queries\\Doctors\\GetDoctorByIdQuery.cs",
-              "RelativeToolTip": "Queries\\Doctors\\GetDoctorByIdQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-14T16:34:42.119Z",
+              "WhenOpened": "2025-03-14T17:50:07.017Z",
               "EditorCaption": ""
             }
           ]

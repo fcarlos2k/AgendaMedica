@@ -1,84 +1,81 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AgendaMedica.Context;
+﻿using AgendaMedica.Context;
 using AgendaMedica.Interfaces;
 using AgendaMedica.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AgendaMedica.Repositories
+namespace AgendaMedica.Repositories;
+
+public class DoctorRepository : IDoctorRepository
 {
-    public class DoctorRepository : IDoctorRepository
+    private readonly AppDbContext _context;
+
+    public DoctorRepository(AppDbContext context)
     {
-        private readonly AppDbContext _context;
+        _context = context;
+    }
 
-        public DoctorRepository(AppDbContext context)
+    public async Task<IEnumerable<Doctor>> GetDoctorsAsync()
+    {
+        return await _context.Doctors
+            .Include(d => d.MedicalSpecialty)
+            .ToListAsync();
+    }
+
+    public async Task<Doctor> GetDoctorByIdAsync(int id)
+    {
+        var doctor = await _context.Doctors
+            .Include(d => d.MedicalSpecialty)
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (doctor == null)
         {
-            _context = context;
+            throw new KeyNotFoundException("Doctor not found");
         }
 
-        public async Task<IEnumerable<Doctor>> GetDoctorsAsync()
+        return doctor;
+    }
+
+    public async Task<int> AddDoctorAsync(Doctor doctor)
+    {
+        if (doctor == null)
         {
-            return await _context.Doctors
-                .Include(d => d.MedicalSpecialty)
-                .ToListAsync();
+            throw new ArgumentNullException(nameof(doctor));
         }
 
-        public async Task<Doctor> GetDoctorByIdAsync(int id)
+        _context.Doctors.Add(doctor);
+        await _context.SaveChangesAsync();
+        return doctor.Id;
+    }
+
+    public async Task<int> UpdateDoctorAsync(Doctor doctor)
+    {
+        if (doctor == null)
         {
-            var doctor = await _context.Doctors
-                .Include(d => d.MedicalSpecialty)
-                .FirstOrDefaultAsync(d => d.Id == id);
-
-            if (doctor == null)
-            {
-                throw new KeyNotFoundException("Doctor not found");
-            }
-
-            return doctor;
+            throw new ArgumentNullException(nameof(doctor));
         }
 
-        public async Task<int> AddDoctorAsync(Doctor doctor)
+        var existingDoctor = await _context.Doctors.FindAsync(doctor.Id);
+        if (existingDoctor == null)
         {
-            if (doctor == null)
-            {
-                throw new ArgumentNullException(nameof(doctor));
-            }
-
-            _context.Doctors.Add(doctor);
-            await _context.SaveChangesAsync();
-            return doctor.Id;
+            throw new KeyNotFoundException("Doctor not found");
         }
 
-        public async Task<int> UpdateDoctorAsync(Doctor doctor)
+        existingDoctor.Name = doctor.Name;
+        existingDoctor.MedicalSpecialtyId = doctor.MedicalSpecialtyId;
+
+        _context.Doctors.Update(existingDoctor);
+        return await _context.SaveChangesAsync();
+    }
+
+    public async Task<int> DeleteDoctorAsync(int id)
+    {
+        var doctor = await _context.Doctors.FindAsync(id);
+        if (doctor == null)
         {
-            if (doctor == null)
-            {
-                throw new ArgumentNullException(nameof(doctor));
-            }
-
-            var existingDoctor = await _context.Doctors.FindAsync(doctor.Id);
-            if (existingDoctor == null)
-            {
-                throw new KeyNotFoundException("Doctor not found");
-            }
-
-            existingDoctor.Name = doctor.Name;
-            existingDoctor.MedicalSpecialtyId = doctor.MedicalSpecialtyId;
-
-            _context.Doctors.Update(existingDoctor);
-            return await _context.SaveChangesAsync();
+            throw new KeyNotFoundException("Doctor not found");
         }
 
-        public async Task<int> DeleteDoctorAsync(int id)
-        {
-            var doctor = await _context.Doctors.FindAsync(id);
-            if (doctor == null)
-            {
-                throw new KeyNotFoundException("Doctor not found");
-            }
-
-            _context.Doctors.Remove(doctor);
-            return await _context.SaveChangesAsync();
-        }
+        _context.Doctors.Remove(doctor);
+        return await _context.SaveChangesAsync();
     }
 }

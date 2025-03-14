@@ -1,5 +1,4 @@
 ﻿using AgendaMedica.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace AgendaMedica.Interfaces;
 
