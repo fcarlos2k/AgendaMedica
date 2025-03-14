@@ -1,6 +1,8 @@
 ﻿using AgendaMedica.Commands.Doctors;
 using AgendaMedica.Interfaces;
 using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AgendaMedica.Handlers.Doctors
 {
@@ -20,3 +22,4 @@ namespace AgendaMedica.Handlers.Doctors
         }
     }
 }
+

@@ -1,6 +1,5 @@
-﻿using System.Data.Entity;
-using AgendaMedica.Commands.Doctors;
-using AgendaMedica.Context;
+﻿using AgendaMedica.Commands.Doctors;
+using AgendaMedica.Interfaces;
 using AgendaMedica.Models;
 using MediatR;
 
@@ -8,24 +7,25 @@ namespace AgendaMedica.Handlers.Doctors
 {
     public class UpdateDoctorCommandHandler : IRequestHandler<UpdateDoctorCommand, Doctor>
     {
-        private readonly AppDbContext _context;
+        private readonly IDoctorRepository _doctorRepository;
 
-        public UpdateDoctorCommandHandler(AppDbContext context)
+        public UpdateDoctorCommandHandler(IDoctorRepository doctorRepository)
         {
-            _context = context;
+            _doctorRepository = doctorRepository;
         }
 
         public async Task<Doctor> Handle(UpdateDoctorCommand request, CancellationToken cancellationToken)
         {
-            var doctor = await _context.Doctors.FirstOrDefaultAsync(d => d.Id == request.Id, cancellationToken);
-            if (doctor == null) return null;
+            var doctor = new Doctor
+            {
+                Id = request.Id,
+                Name = request.Name,
+                MedicalSpecialtyId = request.MedicalSpecialtyId
+            };
 
-            doctor.Name = request.Name;
-            doctor.MedicalSpecialtyId = request.MedicalSpecialtyId;
-
-            await _context.SaveChangesAsync(cancellationToken);
-
+            await _doctorRepository.UpdateDoctorAsync(doctor);
             return doctor;
         }
     }
 }
+

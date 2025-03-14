@@ -1,7 +1,7 @@
 using System.Reflection;
 using AgendaMedica.Context;
 using AgendaMedica.Interfaces;
-using AgendaMedica.Services;
+using AgendaMedica.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

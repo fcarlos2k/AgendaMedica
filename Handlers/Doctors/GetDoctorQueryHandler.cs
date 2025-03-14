@@ -1,29 +1,21 @@
-﻿using AgendaMedica.Context;
-using AgendaMedica.Interfaces;
+﻿using AgendaMedica.Interfaces;
 using AgendaMedica.Models;
 using AgendaMedica.Queries.Doctors;
 using MediatR;
 
-namespace AgendaMedica.Handlers.Doctors
+namespace AgendaMedica.Handlers.Doctors;
+
+public class GetDoctorsQueryHandler : IRequestHandler<GetDoctorsQuery, IEnumerable<Doctor>>
 {
-    public class GetDoctorQueryHandler : IRequestHandler<GetDoctorsQuery, IEnumerable<Doctor>>
+    private readonly IDoctorRepository _doctorRepository;
+
+    public GetDoctorsQueryHandler(IDoctorRepository doctorRepository)
     {
-        private readonly AppDbContext _appDbContext;
-        private readonly IDoctorRepository _doctorRepository;
+        _doctorRepository = doctorRepository;
+    }
 
-        public GetDoctorQueryHandler(AppDbContext appDbContext, IDoctorRepository doctorRepository)
-        {
-            _appDbContext = appDbContext;
-            _doctorRepository = doctorRepository;
-        }
-
-        public async Task<IEnumerable<Doctor>> Handle(GetDoctorsQuery request, CancellationToken cancellationToken)
-        {
-            //var doctors = await _appDbContext.Doctors
-            //    .Include(d => d.MedicalSpecialty)
-            //    .ToListAsync(cancellationToken);
-
-            return await _doctorRepository.GetDoctorsAsync();
-        }
+    public async Task<IEnumerable<Doctor>> Handle(GetDoctorsQuery request, CancellationToken cancellationToken)
+    {
+        return await _doctorRepository.GetDoctorsAsync();
     }
 }

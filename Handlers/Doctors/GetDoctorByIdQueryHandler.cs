@@ -1,21 +1,21 @@
-﻿using AgendaMedica.Context;
+﻿using AgendaMedica.Interfaces;
+using AgendaMedica.Models;
+using AgendaMedica.Queries.Doctors;
+using MediatR;
 
 namespace AgendaMedica.Handlers.Doctors;
 
-public class GetDoctorByIdQueryHandler //: IRequestHandler<GetDoctorByIdQuery, Doctor>
+public class GetDoctorByIdQueryHandler : IRequestHandler<GetDoctorByIdQuery, Doctor>
 {
-    private readonly AppDbContext _appDbContext;
+    private readonly IDoctorRepository _doctorRepository;
 
-    public GetDoctorByIdQueryHandler(AppDbContext appDbContext)
+    public GetDoctorByIdQueryHandler(IDoctorRepository doctorRepository)
     {
-        _appDbContext = appDbContext;
+        _doctorRepository = doctorRepository;
     }
 
-    //public async Task<Doctor> Handle(GetDoctorByIdQuery request, CancellationToken cancellationToken)
-    //{
-    //    var doctor = await _appDbContext.Doctors
-    //            .Include(d => d.MedicalSpecialty)
-    //            .FirstOrDefaultAsync(d => d.Id == request.Id, cancellationToken);
-    //    return doctor;
-    //}
+    public async Task<Doctor> Handle(GetDoctorByIdQuery request, CancellationToken cancellationToken)
+    {
+        return await _doctorRepository.GetDoctorByIdAsync(request.Id);
+    }
 }

@@ -24,60 +24,60 @@ public class DoctorController : ControllerBase
         return Ok(doctors);
     }
 
-    //[HttpGet("{id}")]
-    //public async Task<IActionResult> GetDoctorById(int id)
-    //{
-    //    var query = new GetDoctorByIdQuery(id);
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetDoctorById(int id)
+    {
+        var query = new GetDoctorByIdQuery(id);
 
-    //    var doctor = await _mediator.Send(query);
+        var doctor = await _mediator.Send(query);
 
-    //    if (doctor == null)
-    //    {
-    //        return NotFound();
-    //    }
-    //    return Ok(doctor);
-    //}
+        if (doctor == null)
+        {
+            return NotFound();
+        }
+        return Ok(doctor);
+    }
 
-    //[HttpPost]
-    //public async Task<IActionResult> AddDoctor(CreateDoctorCommand command)
-    //{
-    //    if (command == null)
-    //    {
-    //        return BadRequest();
-    //    }
+    [HttpPost]
+    public async Task<IActionResult> AddDoctor(CreateDoctorCommand command)
+    {
+        if (command == null)
+        {
+            return BadRequest();
+        }
 
-    //    var doctor = await _mediator.Send(command);
-    //    return CreatedAtAction(nameof(GetDoctorById), new { id = doctor.Id }, doctor);
-    //}
+        var doctor = await _mediator.Send(command);
+        return CreatedAtAction(nameof(GetDoctorById), new { id = doctor.Id }, doctor);
+    }
 
-    //[HttpPut("{id}")]
-    //public async Task<IActionResult> UpdateDoctor(int id, UpdateDoctorCommand command)
-    //{
-    //    if (id != command.Id)
-    //    {
-    //        return BadRequest();
-    //    }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateDoctor(int id, UpdateDoctorCommand command)
+    {
+        if (id != command.Id)
+        {
+            return BadRequest();
+        }
 
-    //    var existingDoctor = await _mediator.Send(new GetDoctorByIdQuery(id));
-    //    if (existingDoctor == null)
-    //    {
-    //        return NotFound();
-    //    }
+        var existingDoctor = await _mediator.Send(new GetDoctorByIdQuery(id));
+        if (existingDoctor == null)
+        {
+            return NotFound();
+        }
 
-    //    await _mediator.Send(command);
-    //    return NoContent();
-    //}
+        await _mediator.Send(command);
+        return NoContent();
+    }
 
-    //[HttpDelete("{id}")]
-    //public async Task<IActionResult> DeleteDoctor(int id)
-    //{
-    //    var doctor = await _mediator.Send(new GetDoctorByIdQuery(id));
-    //    if (doctor == null)
-    //    {
-    //        return NotFound();
-    //    }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteDoctor(int id)
+    {
+        var doctor = await _mediator.Send(new GetDoctorByIdQuery(id));
+        if (doctor == null)
+        {
+            return NotFound();
+        }
 
-    //    await _mediator.Send(new DeleteDoctorCommand(id));
-    //    return NoContent();
-    //}
+        await _mediator.Send(new DeleteDoctorCommand(id));
+        return NoContent();
+    }
 }
