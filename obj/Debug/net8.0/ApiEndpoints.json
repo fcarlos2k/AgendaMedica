@@ -79,6 +79,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AgendaMedica.Controllers.MedicalSpecialtyController",
+    "Method": "GetMedicalSpecialties",
+    "RelativePath": "MedicalSpecialty",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalSpecialtyController",
+    "Method": "AddMedicalSpecialty",
+    "RelativePath": "MedicalSpecialty",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "AgendaMedica.Commands.MedicalSpecialties.CreateMedicalSpecialtyCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalSpecialtyController",
+    "Method": "GetMedicalSpecialtyById",
+    "RelativePath": "MedicalSpecialty/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalSpecialtyController",
+    "Method": "UpdateMedicalSpecialty",
+    "RelativePath": "MedicalSpecialty/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "AgendaMedica.Commands.MedicalSpecialties.UpdateMedicalSpecialtyCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalSpecialtyController",
+    "Method": "DeleteMedicalSpecialty",
+    "RelativePath": "MedicalSpecialty/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AgendaMedica.Controllers.PatientController",
     "Method": "GetPatients",
     "RelativePath": "Patient",
