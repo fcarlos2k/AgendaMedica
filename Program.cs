@@ -23,8 +23,8 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Get
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IMedicalSpecialtyRepository, MedicalSpecialtyRepository>();
+builder.Services.AddScoped<IMedicalConsultationStatusRepository, MedicalConsultationStatusRepository>();
 
-//builder.Services.AddScoped<IMedicalConsultationStatus, MedicalConsultationStatusService>();
 //builder.Services.AddScoped<IMedicalConsultation, MedicalConsultationService>();
 
 

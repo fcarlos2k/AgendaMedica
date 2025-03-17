@@ -79,6 +79,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationStatusController",
+    "Method": "GetMedicalConsultationStatuss",
+    "RelativePath": "MedicalConsultationStatus",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationStatusController",
+    "Method": "AddMedicalConsultationStatus",
+    "RelativePath": "MedicalConsultationStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "AgendaMedica.Commands.MedicalConsultationStatuses.CreateMedicalConsultationStatusCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationStatusController",
+    "Method": "GetMedicalConsultationStatusById",
+    "RelativePath": "MedicalConsultationStatus/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationStatusController",
+    "Method": "UpdateMedicalConsultationStatus",
+    "RelativePath": "MedicalConsultationStatus/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "command",
+        "Type": "AgendaMedica.Commands.MedicalConsultationStatuses.UpdateMedicalConsultationStatusCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationStatusController",
+    "Method": "DeleteMedicalConsultationStatus",
+    "RelativePath": "MedicalConsultationStatus/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AgendaMedica.Controllers.MedicalSpecialtyController",
     "Method": "GetMedicalSpecialties",
     "RelativePath": "MedicalSpecialty",
