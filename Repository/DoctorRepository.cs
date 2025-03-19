@@ -34,6 +34,13 @@ public class DoctorRepository : IDoctorRepository
 
         return doctor;
     }
+    public async Task<IEnumerable<Doctor>> GetDoctorsBySpecialtyAsync(int specialtyId)
+    {
+        return await _context.Doctors
+            .Include(d => d.MedicalSpecialty)
+            .Where(d => d.MedicalSpecialtyId == specialtyId)
+            .ToListAsync();
+    }
 
     public async Task<int> AddDoctorAsync(Doctor doctor)
     {
@@ -78,4 +85,6 @@ public class DoctorRepository : IDoctorRepository
         _context.Doctors.Remove(doctor);
         return await _context.SaveChangesAsync();
     }
+
+
 }

@@ -14,9 +14,10 @@ namespace AgendaMedica.Context.Configurations
 
             builder.HasData(
                 new MedicalConsultationStatus { Id = 1, Status = "Agendada" },
-                new MedicalConsultationStatus { Id = 2, Status = "Cancelada" },
-                new MedicalConsultationStatus { Id = 3, Status = "Realizada" },
-                new MedicalConsultationStatus { Id = 4, Status = "Remarcada" }
+                new MedicalConsultationStatus { Id = 2, Status = "Confirmada" },
+                new MedicalConsultationStatus { Id = 3, Status = "Cancelada" },
+                new MedicalConsultationStatus { Id = 4, Status = "Realizada" },
+                new MedicalConsultationStatus { Id = 5, Status = "Remarcada" }
             );
         }
     }

@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\commands\\medicalconsultationstatuses\\updatemedicalconsultationstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:commands\\medicalconsultationstatuses\\updatemedicalconsultationstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\repository\\medicalconsultationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:repository\\medicalconsultationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\commands\\medicalconsultationstatuses\\deletemedicalconsultationstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:commands\\medicalconsultationstatuses\\deletemedicalconsultationstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\repository\\doctorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:repository\\doctorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\commands\\medicalconsultationstatuses\\createmedicalconsultationstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:commands\\medicalconsultationstatuses\\createmedicalconsultationstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\controllers\\medicalconsultationstatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:controllers\\medicalconsultationstatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|c:\\users\\fabricio.araujo\\documents\\projetos\\agendamedica\\handlers\\medicalconsultations\\scheduleconsultationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CF1F28B-B5B1-4698-95FB-AC467DBFFF62}|AgendaMedica.csproj|solutionrelative:handlers\\medicalconsultations\\scheduleconsultationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +22,45 @@
       "DocumentGroups": [
         {
           "DockedHeight": 220,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpdateMedicalConsultationStatusCommand.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Commands\\MedicalConsultationStatuses\\UpdateMedicalConsultationStatusCommand.cs",
-              "RelativeDocumentMoniker": "Commands\\MedicalConsultationStatuses\\UpdateMedicalConsultationStatusCommand.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Commands\\MedicalConsultationStatuses\\UpdateMedicalConsultationStatusCommand.cs",
-              "RelativeToolTip": "Commands\\MedicalConsultationStatuses\\UpdateMedicalConsultationStatusCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "DoctorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repository\\DoctorRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\DoctorRepository.cs",
+              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repository\\DoctorRepository.cs",
+              "RelativeToolTip": "Repository\\DoctorRepository.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T16:29:02.222Z",
+              "WhenOpened": "2025-03-19T14:13:26.932Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeleteMedicalConsultationStatusCommand.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Commands\\MedicalConsultationStatuses\\DeleteMedicalConsultationStatusCommand.cs",
-              "RelativeDocumentMoniker": "Commands\\MedicalConsultationStatuses\\DeleteMedicalConsultationStatusCommand.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Commands\\MedicalConsultationStatuses\\DeleteMedicalConsultationStatusCommand.cs",
-              "RelativeToolTip": "Commands\\MedicalConsultationStatuses\\DeleteMedicalConsultationStatusCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "MedicalConsultationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repository\\MedicalConsultationRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\MedicalConsultationRepository.cs",
+              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Repository\\MedicalConsultationRepository.cs",
+              "RelativeToolTip": "Repository\\MedicalConsultationRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T16:29:01.089Z",
+              "WhenOpened": "2025-03-19T14:11:06.945Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CreateMedicalConsultationStatusCommand.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Commands\\MedicalConsultationStatuses\\CreateMedicalConsultationStatusCommand.cs",
-              "RelativeDocumentMoniker": "Commands\\MedicalConsultationStatuses\\CreateMedicalConsultationStatusCommand.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Commands\\MedicalConsultationStatuses\\CreateMedicalConsultationStatusCommand.cs",
-              "RelativeToolTip": "Commands\\MedicalConsultationStatuses\\CreateMedicalConsultationStatusCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ScheduleConsultationHandler.cs",
+              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Handlers\\MedicalConsultations\\ScheduleConsultationHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\MedicalConsultations\\ScheduleConsultationHandler.cs",
+              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Handlers\\MedicalConsultations\\ScheduleConsultationHandler.cs",
+              "RelativeToolTip": "Handlers\\MedicalConsultations\\ScheduleConsultationHandler.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T16:28:58.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MedicalConsultationStatusController.cs",
-              "DocumentMoniker": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Controllers\\MedicalConsultationStatusController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MedicalConsultationStatusController.cs",
-              "ToolTip": "C:\\Users\\fabricio.araujo\\Documents\\Projetos\\AgendaMedica\\Controllers\\MedicalConsultationStatusController.cs",
-              "RelativeToolTip": "Controllers\\MedicalConsultationStatusController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T16:28:09.7Z",
+              "WhenOpened": "2025-03-19T14:09:31.024Z",
               "EditorCaption": ""
             }
           ]

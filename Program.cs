@@ -24,9 +24,7 @@ builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IMedicalSpecialtyRepository, MedicalSpecialtyRepository>();
 builder.Services.AddScoped<IMedicalConsultationStatusRepository, MedicalConsultationStatusRepository>();
-
-//builder.Services.AddScoped<IMedicalConsultation, MedicalConsultationService>();
-
+builder.Services.AddScoped<IMedicalConsultationRepository, MedicalConsultationRepository>();
 
 
 var app = builder.Build();

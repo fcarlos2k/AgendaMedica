@@ -79,6 +79,101 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AgendaMedica.Controllers.DoctorController",
+    "Method": "GetDoctorsBySpecialty",
+    "RelativePath": "Doctor/BySpecialty/{specialtyId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "specialtyId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationController",
+    "Method": "GetAgenda",
+    "RelativePath": "MedicalConsultation/agenda",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConsultationDate",
+        "Type": "System.Nullable\u00601[[System.DateOnly, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MedicalSpecialtyId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "DoctorId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "StatusId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationController",
+    "Method": "CancelConsultation",
+    "RelativePath": "MedicalConsultation/cancel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "AgendaMedica.Commands.MedicalConsultations.CancelMedicalConsultationCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationController",
+    "Method": "ConfirmConsultation",
+    "RelativePath": "MedicalConsultation/confirm",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "AgendaMedica.Commands.MedicalConsultations.ConfirmMedicalConsultationCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AgendaMedica.Controllers.MedicalConsultationController",
+    "Method": "ScheduleConsultation",
+    "RelativePath": "MedicalConsultation/schedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "AgendaMedica.Commands.MedicalConsultations.ScheduleMedicalConsultationCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AgendaMedica.Controllers.MedicalConsultationStatusController",
     "Method": "GetMedicalConsultationStatuss",
     "RelativePath": "MedicalConsultationStatus",

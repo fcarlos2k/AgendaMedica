@@ -1,5 +1,6 @@
 ﻿using AgendaMedica.Commands.Doctors;
 using AgendaMedica.Queries.Doctors;
+using AgendaMedica.Queries.MedicalConsultations;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,6 +37,14 @@ public class DoctorController : ControllerBase
             return NotFound();
         }
         return Ok(doctor);
+    }
+
+    [HttpGet("BySpecialty/{specialtyId}")]
+    public async Task<IActionResult> GetDoctorsBySpecialty(int specialtyId)
+    {
+        var query = new GetDoctorsBySpecialty(specialtyId);
+        var doctors = await _mediator.Send(query);
+        return Ok(doctors);
     }
 
     [HttpPost]

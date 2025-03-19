@@ -14,8 +14,7 @@ namespace AgendaMedica.Context
         public DbSet<Patient> Patients { get; set; }
         public DbSet<MedicalSpecialty> MedicalSpecialties { get; set; }
         public DbSet<MedicalConsultationStatus> MedicalConsultationStatuses { get; set; }
-
-        //public DbSet<MedicalConsultation> MedicalConsultations { get; set; }
+        public DbSet<MedicalConsultation> MedicalConsultations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,8 +22,7 @@ namespace AgendaMedica.Context
             modelBuilder.ApplyConfiguration(new PatientConfiguration());
             modelBuilder.ApplyConfiguration(new MedicalSpecialtyConfiguration());
             modelBuilder.ApplyConfiguration(new MedicalConsultationStatusConfiguration());
-
-            //modelBuilder.ApplyConfiguration(new MedicalConsultationConfiguration());
+            modelBuilder.ApplyConfiguration(new MedicalConsultationConfiguration());
         }
     }
 }
