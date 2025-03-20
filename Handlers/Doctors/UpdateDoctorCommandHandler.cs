@@ -16,6 +16,16 @@ namespace AgendaMedica.Handlers.Doctors
 
         public async Task<Doctor> Handle(UpdateDoctorCommand request, CancellationToken cancellationToken)
         {
+            if (request.Id <= 0)
+            {
+                throw new ArgumentException("Invalid doctor ID.", nameof(request.Id));
+            }
+
+            if (string.IsNullOrWhiteSpace(request.Name))
+            {
+                throw new ArgumentException("Doctor name cannot be null or empty.", nameof(request.Name));
+            }
+
             var doctor = new Doctor
             {
                 Id = request.Id,
