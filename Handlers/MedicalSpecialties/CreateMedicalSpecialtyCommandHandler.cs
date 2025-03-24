@@ -14,6 +14,16 @@ public class CreateMedicalSpecialtyCommandHandler : IRequestHandler<CreateMedica
     }
     public async Task<MedicalSpecialty> Handle(CreateMedicalSpecialtyCommand request, CancellationToken cancellationToken)
     {
+        if (string.IsNullOrWhiteSpace(request.Name))
+        {
+            throw new ArgumentException("Medical specialty name cannot be null or empty.", nameof(request.Name));
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Description))
+        {
+            throw new ArgumentException("Medical specialty description cannot be null or empty.", nameof(request.Description));
+        }
+
         var medicalSpecialty = new MedicalSpecialty
         {
             Name = request.Name,

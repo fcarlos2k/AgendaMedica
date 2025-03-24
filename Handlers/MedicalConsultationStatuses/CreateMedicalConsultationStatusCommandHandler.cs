@@ -14,6 +14,11 @@ namespace AgendaMedica.Handlers.MedicalConsultationStatuses
         }
         public async Task<MedicalConsultationStatus> Handle(CreateMedicalConsultationStatusCommand request, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrEmpty(request.Status))
+            {
+                throw new ArgumentException("Status cannot be null or empty", nameof(request.Status));
+            }
+
             var medicalConsultationStatus = new MedicalConsultationStatus
             {
                 Status = request.Status

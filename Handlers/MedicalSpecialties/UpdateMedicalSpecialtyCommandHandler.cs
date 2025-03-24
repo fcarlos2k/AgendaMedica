@@ -14,6 +14,21 @@ public class UpdateMedicalSpecialtyCommandHandler : IRequestHandler<UpdateMedica
     }
     public async Task<MedicalSpecialty> Handle(UpdateMedicalSpecialtyCommand request, CancellationToken cancellationToken)
     {
+        if (request.Id <= 0)
+        {
+            throw new ArgumentException("Invalid medical specialty ID.", nameof(request.Id));
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Name))
+        {
+            throw new ArgumentException("Medical specialty name cannot be null or empty.", nameof(request.Name));
+        }
+
+        if (string.IsNullOrWhiteSpace(request.Description))
+        {
+            throw new ArgumentException("Medical specialty description cannot be null or empty.", nameof(request.Description));
+        }
+
         var medicalSpecialty = new MedicalSpecialty
         {
             Id = request.Id,

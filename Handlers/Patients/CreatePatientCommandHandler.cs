@@ -16,6 +16,16 @@ namespace AgendaMedica.Handlers.Patients
 
         public async Task<Patient> Handle(CreatePatientCommand request, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrWhiteSpace(request.Name))
+            {
+                throw new ArgumentException("Patient name cannot be null or empty.", nameof(request.Name));
+            }
+
+            if (string.IsNullOrWhiteSpace(request.Cpf))
+            {
+                throw new ArgumentException("Patient CPF cannot be null or empty.", nameof(request.Cpf));
+            }
+
             var patient = new Patient
             {
                 Id = request.Id,
