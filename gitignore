@@ -398,3 +398,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Lançamentos manuais de restrições
+Debug/
+obj/
+bin/
+.vs/
+.vscode/
+
